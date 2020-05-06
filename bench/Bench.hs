@@ -25,7 +25,7 @@ instance NFData ByteArray.ByteArray where
 getInputs :: IO (ByteArray.ByteArray, ByteString.ByteString)
 getInputs =
   do
-    let inp = input 1000000
+    let inp = input 10000
     pure ( ByteArray.byteArrayFromList inp
          , ByteString.pack inp
          )
@@ -34,8 +34,17 @@ main :: IO ()
 main = C.defaultMain . pure $
   C.env getInputs $ \ ~(bytes, bs) ->
       C.bgroup "base16 benchmarks:"
-        [ C.bench "bytes-encode-shuffle" $ C.whnf Bytes.encode bytes
-        , C.bench "bos-encode"           $ C.whnf Bos.encode bs
-        , C.bench "topos-encode"         $ C.whnf Base16.encodeBase16' bs
+        [ C.bench "bytes16-encode"
+            $ C.whnf Bytes.encode bytes
+        , C.bench "base16-bytestring-encode"
+            $ C.whnf Bos.encode bs
+        , C.bench "base16-encode"
+            $ C.whnf Base16.encodeBase16' bs
+        , C.bench "bytes16-decode-encode"
+            $ C.whnf (Bytes.decode . Bytes.encode) bytes
+        , C.bench "base16-bytestring-decode-encode"
+            $ C.whnf (fst . Bos.decode . Bos.encode) bs
+        , C.bench "base16-decode-encode"
+            $ C.whnf (Base16.decodeBase16Lenient . Base16.encodeBase16') bs
         ]
 
