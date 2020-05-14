@@ -7,7 +7,7 @@ currently supports with the llvm backend in order to try to extract the highest 
 
 ### Explanation:
 
-A base-16 encoding takes a stream of bytes which we might think of as base256
+A base-16 encoding takes a stream of bytes which we might think of as base-256
 and converts it into an ascii representation of hexadecimal:
 
 ```terminal
