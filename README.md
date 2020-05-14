@@ -34,8 +34,8 @@ Note here that:
 
 ### Benchmarks:
 There are currently two other libraries that provide these encodings:
-  * (base16-bytestring)[https://hackage.haskell.org/package/base16-bytestring]
-  * (base16)[https://hackage.haskell.org/package/base16]
+  * [base16-bytestring](https://hackage.haskell.org/package/base16-bytestring)
+  * [base16](https://hackage.haskell.org/package/base16)
 
 Here are the initial benchmarks showing this library's performance compared to these two:
 ```terminal
