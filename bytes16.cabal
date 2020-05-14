@@ -43,6 +43,12 @@ executable base16
     , bytes16
     , base
     , primitive
+    , base16-bytestring
+    , base16
+    , bytes16
+    , bytestring
+
+
 
 
 
@@ -91,6 +97,11 @@ Test-Suite testsuite
     , tasty
     , tasty-quickcheck
     , quickcheck-instances
+    , base16-bytestring
+    , base16
+    , bytes16
+    , bytestring
+    , primitive
 
 
   other-modules:
