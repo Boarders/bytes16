@@ -1,14 +1,14 @@
 ## `bytes16`
 
-This library implements encoding and decoding a [`ByteArray`](http://hackage.haskell.org/package/primitive-0.7.0.1/docs/Data-Primitive-ByteArray.html#t:ByteArray) into base 16.
+This library implements encoding and decoding a [`ByteArray`](http://hackage.haskell.org/package/primitive-0.7.0.1/docs/Data-Primitive-ByteArray.html#t:ByteArray) into base-16.
 
-We make use of primitive GHC operations including the simd operations that GHC
-currently supports with the llvm backend in order to have the highest performance.
+We make use of primitive GHC operations including simd operations that GHC
+currently supports with the llvm backend in order to try to extract the highest performance.
 
 ### Explanation:
 
 A base-16 encoding takes a stream of bytes which we might think of as base256
-and converts it into an ascii representation of base16:
+and converts it into an ascii representation of hexadecimal:
 
 ```terminal
 
@@ -33,7 +33,7 @@ Note here that:
 ```
 
 ### Benchmarks:
-There are currently two other library that provide these encodings:
+There are currently two other libraries that provide these encodings:
   * (base16-bytestring)[https://hackage.haskell.org/package/base16-bytestring]
   * (base16)[https://hackage.haskell.org/package/base16]
 
@@ -81,6 +81,6 @@ mean                 21.61 μs   (21.46 μs .. 21.77 μs)
 std dev              509.8 ns   (395.2 ns .. 761.4 ns)
 variance introduced by outliers: 23% (moderately inflated)
 ```
-In particular encodig and decoding is about 4-6x faster than the base16-bytestring library.
+In particular, encoding and decoding is about 4-6x faster than the base16-bytestring library.
 
 _work in progress_
